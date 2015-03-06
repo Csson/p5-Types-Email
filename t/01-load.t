@@ -3,7 +3,9 @@ use warnings;
 
 use Test::More;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
-use Types::Email;
 
-fail('this test is TODO!');
+BEGIN {
+    use_ok 'Types::Email';
+};
+
 done_testing;
