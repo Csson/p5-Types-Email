@@ -4,12 +4,30 @@ doctype: dist
 header:
   name: Types-Email
 
+prereqs:
+  runtime:
+    requires:
+      - perl: 5.008001
+      - Type::Library: 1.000000
+      - Type::Utils: 1.000000
+      - Types::Standard: 1.000000
+      - Email::Valid
+      - Email::Abstract
+  test:
+    requires:
+      - Test::Deep
+
 plugins:
   - +config: Author::CSSON
+
+  - +add_plugin: TravisYML
+    +before: Git::Tag
+    perl_version: 5.8 5.10 5.14 5.20
 
 ---
 doctype: weaver
 
 plugins:
   - +config: Author::CSSON
-  
+
+  - +remove_plugin: Splint
